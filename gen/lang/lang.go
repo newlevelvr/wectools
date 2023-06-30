@@ -7,7 +7,6 @@ import (
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 	"os"
-	"strings"
 )
 
 var outputFolder = config.OutputFolderBase + "/lang"
@@ -16,18 +15,6 @@ type Lang map[string]string
 
 func (l Lang) PutTranslation(key, id, value string) {
 	l[fmt.Sprintf("%s.%s.%s", key, config.ModID, id)] = value
-}
-
-func getHumanColor(color string, parser *cases.Caser) string {
-	custom, exists := config.CustomColorNames[color]
-	if exists {
-		return custom
-	}
-	return parser.String(color)
-}
-
-func getHumanTool(tool string, parser *cases.Caser) string {
-	return parser.String(strings.Replace(tool, "_", " ", -1))
 }
 
 func Generate() {
@@ -45,8 +32,8 @@ func Generate() {
 	for _, tool := range config.Tools {
 		for _, color := range config.Colors {
 			id := config.ToID(tool, color)
-			humanColor := getHumanColor(color, &titler)
-			humanTool := getHumanTool(tool, &titler)
+			humanColor := config.GetHumanColor(color, &titler)
+			humanTool := config.GetHumanTool(tool, &titler)
 			lang.PutTranslation("item", id, fmt.Sprintf("%s %s", humanColor, humanTool))
 		}
 	}

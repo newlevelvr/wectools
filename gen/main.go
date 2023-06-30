@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"gen/desc"
 	"gen/lang"
 	"gen/models"
 	"os"
@@ -18,6 +19,11 @@ func main() {
 	if all || os.Args[1] == "models" {
 		fmt.Println("Generating model files")
 		models.Generate()
+		used = true
+	}
+	if all || os.Args[1] == "desc" {
+		fmt.Println("Generating Modrinth description")
+		desc.Generate()
 		used = true
 	}
 	if !used {
