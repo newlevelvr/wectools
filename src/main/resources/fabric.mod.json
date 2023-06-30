@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "wectools",
+  "version": "${version}",
+  "name": "WorldEditColoredTools",
+  "description": "",
+  "authors": [
+    "Wani4ka"
+  ],
+  "contact": {
+    "email": "wani4ka@duck.com",
+    "sources": "https://github.com/newlevelvr/wectools",
+    "issues": "https://github.com/newlevelvr/wectools/issues"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/wectools/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ru.newlevelvr.wectools.WorldEditColoredTools"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

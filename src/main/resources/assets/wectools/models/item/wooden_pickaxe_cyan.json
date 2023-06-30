@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "wectools:item/wooden_pickaxe_cyan"
+  }
+}
