@@ -22,7 +22,10 @@ func createModelFile(id string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Fprintf(f, template, config.ModID, id)
+	_, err = fmt.Fprintf(f, template, config.ModID, id)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -39,5 +42,8 @@ func Generate() {
 			}
 		}
 	}
-	createModelFile("wand")
+	err = createModelFile("wand")
+	if err != nil {
+		panic(err)
+	}
 }
